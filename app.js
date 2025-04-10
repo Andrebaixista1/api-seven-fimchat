@@ -22,6 +22,7 @@ const ignoreNumbers = [
   "5511952273561", // Jenifer
   "5511974151674", // Erick
   "5511997510063", // Hebert
+  "5511937277727", // Suporte Seven
 ];
 
 // Dados para a requisição da listagem de chats
