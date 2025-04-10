@@ -11,6 +11,15 @@ if (!TOKEN) {
 
 console.log('Token carregado:', TOKEN);
 
+// Lista de números de contato que devem ser ignorados
+const ignoreNumbers = [
+  "5511980733602",
+  "5511960669130",
+  "5511953428118",
+  "5511961166962",
+  "5511916910227"
+];
+
 // Dados para a requisição da listagem de chats
 const listRequestData = {
   sectorId: '676161c50e7bb7f767099187',
@@ -56,7 +65,16 @@ async function main() {
     const inatividadeLimite = 30 * 60 * 1000; // 30 minutos em milissegundos
 
     // Filtra os chats em que a última mensagem foi enviada há mais de 30 minutos
+    // e ignora os contatos com os números especificados.
     const filteredChats = chats.filter(chat => {
+      // Verifica se o chat tem o objeto de contato e seu número
+      if (chat.contact && chat.contact.number) {
+        if (ignoreNumbers.includes(chat.contact.number)) {
+          console.log(`Ignorando chat do número: ${chat.contact.number}`);
+          return false;
+        }
+      }
+
       if (chat.lastMessage && chat.lastMessage.utcDhMessage) {
         const lastMsgTime = new Date(chat.lastMessage.utcDhMessage);
         return (now - lastMsgTime) > inatividadeLimite;
