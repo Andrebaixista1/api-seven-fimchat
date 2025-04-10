@@ -13,11 +13,15 @@ console.log('Token carregado:', TOKEN);
 
 // Lista de números de contato que devem ser ignorados
 const ignoreNumbers = [
-  "5511980733602",
-  "5511960669130",
-  "5511953428118",
-  "5511961166962",
-  "5511916910227"
+  "5511980733602", // André
+  "5511960669130", // Lauany
+  "5511953428118", // Luana
+  "5511961166962", // Gustavo
+  "5511916910227", // William
+  "5511958999485", // Suporte Argus
+  "5511952273561", // Jenifer
+  "5511974151674", // Erick
+  "5511997510063", // Hebert
 ];
 
 // Dados para a requisição da listagem de chats
